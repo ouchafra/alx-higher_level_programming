@@ -1,17 +1,26 @@
 #!/usr/bin/python3
-"""Lists states"""
 
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import relationship
+"""
+    this module contains a Base and State class
+"""
+
 from sqlalchemy.ext.declarative import declarative_base
-from model_city import City
+from sqlalchemy import Column
+from sqlalchemy import String
+from sqlalchemy import Integer
+
 
 Base = declarative_base()
 
 
 class State(Base):
-    """Class representing the states table"""
+    """
+        State class inherits the Base class
+        Attributes:
+            id (int)
+            name (string)
+    """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False,
-                autoincrement=True, unique=True)
+
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
